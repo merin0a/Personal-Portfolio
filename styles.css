@@ -42,6 +42,8 @@ body {
   text-align: center;
   font-family: cursive;
   margin: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 #welcome-section h1 {
@@ -61,6 +63,13 @@ body {
   margin-bottom: 20px;
   border: 5px solid white;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 5;
+}
+.profile-pic,
+#welcome-section h1 {
+  position: relative;
+  z-index: 5;
 }
 
 @media (max-width: 600px) {
