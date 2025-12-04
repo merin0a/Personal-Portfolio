@@ -160,3 +160,48 @@ body {
   color: #2c3e50;
   font-family: cursive;
 }
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  width: 300px;
+  height: 70px;
+  border-radius: 50px;
+  filter: blur(1px);
+  opacity: 0.8;
+  animation: float 25s linear infinite;
+  z-index: 0;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 160px;
+  height: 90px;
+  border-radius: 50%;
+  top: -25px;
+}
+
+.cloud::before {
+  left: 20px;
+}
+
+.cloud::after {
+  right: 20px;
+}
+
+.cloud1  { top: 20%; left: -250px; animation-duration: 35s; animation-delay: 0s; }
+.cloud2  { top: 40%; left: -300px; animation-duration: 45s; animation-delay: 3s; }
+.cloud3  { top: 60%; left: -280px; animation-duration: 40s; animation-delay: 5s; }
+.cloud4  { top: 30%; left: -330px; animation-duration: 50s; animation-delay: 10s; }
+.cloud5  { top: 50%; left: -260px; animation-duration: 55s; animation-delay: 14s; }
+.cloud6  { top: 10%; left: -310px; animation-duration: 48s; animation-delay: 17s; }
+.cloud7  { top: 25%; left: -290px; animation-duration: 50s; animation-delay: 20s; }
+
+
+@keyframes float {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(140vw); }
+}
