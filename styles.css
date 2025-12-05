@@ -201,13 +201,13 @@ body {
   right: 20px;
 }
 
-.cloud1  { top: 20%; left: -250px; animation-duration: 35s; animation-delay: 0s; }
+.cloud1  { top: 20%; left: -300px; animation-duration: 35s; animation-delay: 0s; }
 .cloud2  { top: 40%; left: -300px; animation-duration: 45s; animation-delay: 3s; }
-.cloud3  { top: 60%; left: -280px; animation-duration: 40s; animation-delay: 5s; }
+.cloud3  { top: 60%; left: -300px; animation-duration: 40s; animation-delay: 5s; }
 .cloud4  { top: 30%; left: -330px; animation-duration: 50s; animation-delay: 10s; }
-.cloud5  { top: 50%; left: -260px; animation-duration: 55s; animation-delay: 14s; }
+.cloud5  { top: 50%; left: -300px; animation-duration: 55s; animation-delay: 14s; }
 .cloud6  { top: 10%; left: -310px; animation-duration: 48s; animation-delay: 17s; }
-.cloud7  { top: 25%; left: -290px; animation-duration: 50s; animation-delay: 20s; }
+.cloud7  { top: 25%; left: -300px; animation-duration: 50s; animation-delay: 20s; }
 
 
 @keyframes float {
