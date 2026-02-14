@@ -5,6 +5,7 @@ body {
   color: #222;
 }
 
+/* NAVBAR */
 #navbar {
   position: fixed;
   top: 0;
@@ -13,7 +14,6 @@ body {
   padding: 15px 20px;
   background: #2c3e50;
   display: flex;
-  justify-content: flex-start;
   gap: 25px;
   z-index: 100;
 }
@@ -29,7 +29,7 @@ body {
   color: #1abc9c;
 }
 
-
+/* WELCOME SECTION */
 #welcome-section {
   height: 100vh;
   display: flex;
@@ -40,8 +40,6 @@ body {
   color: #fff;
   padding-top: 60px;
   text-align: center;
-  font-family: fira code;
-  margin: 0;
   position: relative;
   overflow: hidden;
 }
@@ -49,10 +47,6 @@ body {
 #welcome-section h1 {
   font-size: 3rem;
   margin: 0;
-}
-
-#welcome-section, #projects {
-  scroll-margin-top: 60px;
 }
 
 .profile-pic {
@@ -66,24 +60,17 @@ body {
   position: relative;
   z-index: 5;
 }
-.profile-pic,
-#welcome-section h1 {
-  position: relative;
-  z-index: 5;
+
+/* PROJECTS */
+#projects {
+  scroll-margin-top: 60px;
 }
 
-@media (max-width: 600px) {
-  #navbar a {
-    font-size: 16px;
-  }
-
-  #welcome-section h1 {
-    font-size: 2rem;
-  }
-
-  .github-grid, .projects-grid {
-    grid-template-columns: 1fr;
-  }
+#projects h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
 .projects-grid {
@@ -113,14 +100,13 @@ body {
   color: #2c3e50;
 }
 
-#projects h2 {
-  text-align: center;  
-  font-size: 2rem;   
-  margin-bottom: 30px; 
-  color: #2c3e50;
-  font-family: fira code;
+.project-tile img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
+/* GITHUB */
 #github {
   text-align: center;
   padding: 80px 20px;
@@ -128,19 +114,16 @@ body {
 }
 
 .github-grid {
-  display: flex;  
+  display: flex;
   justify-content: center;
-  padding: 20px;
 }
 
 .github-tile {
-  width: 100%;    
-  max-width: 700px; 
+  max-width: 700px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding: 20px;
-  text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -157,26 +140,13 @@ body {
   margin-bottom: 10px;
 }
 
-.github-tile p {
-  font-size: 0.95rem;
-  color: #2c3e50;
-}
-
-#github h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  font-family: fira code;
-}
-
+/* CLOUDS */
 .cloud {
   position: absolute;
   background: #fff;
   width: 300px;
   height: 70px;
   border-radius: 50px;
-  filter: blur(1px);
   opacity: 0.8;
   animation: float 25s linear infinite;
   z-index: 0;
@@ -201,16 +171,26 @@ body {
   right: 20px;
 }
 
-.cloud1  { top: 20%; left: -300px; animation-duration: 35s; animation-delay: 0s; }
-.cloud2  { top: 40%; left: -300px; animation-duration: 45s; animation-delay: 3s; }
-.cloud3  { top: 60%; left: -300px; animation-duration: 40s; animation-delay: 5s; }
-.cloud4  { top: 30%; left: -330px; animation-duration: 50s; animation-delay: 10s; }
-.cloud5  { top: 50%; left: -300px; animation-duration: 55s; animation-delay: 14s; }
-.cloud6  { top: 10%; left: -310px; animation-duration: 48s; animation-delay: 17s; }
-.cloud7  { top: 25%; left: -300px; animation-duration: 50s; animation-delay: 20s; }
-
+.cloud1  { top: 20%; left: -300px; animation-duration: 25s; }
+.cloud2  { top: 40%; left: -300px; animation-duration: 35s; }
+.cloud3  { top: 60%; left: -300px; animation-duration: 30s; }
+.cloud4  { top: 30%; left: -330px; animation-duration: 50s; }
+.cloud5  { top: 50%; left: -300px; animation-duration: 45s; }
+.cloud6  { top: 10%; left: -310px; animation-duration: 38s; }
+.cloud7  { top: 25%; left: -300px; animation-duration: 40s; }
 
 @keyframes float {
   0%   { transform: translateX(0); }
   100% { transform: translateX(140vw); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #welcome-section h1 {
+    font-size: 2rem;
+  }
 }
