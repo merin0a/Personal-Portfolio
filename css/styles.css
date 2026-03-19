@@ -64,6 +64,20 @@ body {
 /* PROJECTS */
 #projects {
   scroll-margin-top: 60px;
+  position: relative; /* important for boat */
+  padding-bottom: 120px;
+  background: linear-gradient(135deg, #5DADE2, #e9eded);
+}
+
+/* Water at bottom of Projects */
+#projects::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #3498db, transparent);
+  z-index: 1;
 }
 
 #projects h2 {
@@ -193,4 +207,51 @@ body {
   #welcome-section h1 {
     font-size: 2rem;
   }
+}
+
+/* BOAT (moves like clouds in Projects section) */
+.boat {
+  position: absolute;
+  bottom: 40px;
+  left: -150px;
+  width: 110px;
+  height: 110px;
+  z-index: 2;
+  animation: sailBoat 25s linear infinite;
+}
+
+/* Animation: move left → right */
+@keyframes sailBoat {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(140vw); }
+}
+
+/* Boat parts */
+.hull {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 40px;
+  background: #8e5a2b;
+  border-radius: 0 0 60px 60px;
+}
+
+.mast {
+  position: absolute;
+  bottom: 40px;
+  left: 55px;
+  width: 5px;
+  height: 60px;
+  background: #333;
+}
+
+.sail {
+  position: absolute;
+  bottom: 50px;
+  left: 60px;
+  width: 0;
+  height: 0;
+  border-left: 40px solid white;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
 }
