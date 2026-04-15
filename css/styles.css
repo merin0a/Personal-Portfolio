@@ -1,21 +1,37 @@
+/* 1. Global Page Settings */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
-  color: #222;
+  background: linear-gradient(
+    to bottom,
+    #5DADE2 0%,      /* Sky */
+    #85C1E9 25%,     /* Horizon */
+    #3498db 50%,     /* Surface */
+    #21618C 75%,     /* Mid-Water */
+    #1B2631 100%     /* Abyss */
+  );
+  background-attachment: fixed;
+  color: #fff;
 }
 
-/* NAVBAR */
+/* 2. NAVBAR */
 #navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: 15px 20px;
-  background: #2c3e50;
+  background: rgba(27, 38, 49, 0.7); 
+  backdrop-filter: blur(10px); 
   display: flex;
   gap: 25px;
   z-index: 100;
+  box-sizing: border-box;
 }
 
 #navbar a {
@@ -25,30 +41,21 @@ body {
   transition: color 0.3s;
 }
 
-#navbar a:hover {
-  color: #1abc9c;
-}
+#navbar a:hover { color: #1abc9c; }
 
-/* WELCOME SECTION */
-#welcome-section {
-  height: 100vh;
+/* 3. SECTIONS */
+#welcome-section, #github, #projects {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #5DADE2, #e9eded);
-  color: #fff;
-  padding-top: 60px;
-  text-align: center;
+  padding: 100px 20px;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
-#welcome-section h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
+/* 4. PROFILE PICTURE */
 .profile-pic {
   width: 240px;
   height: 240px;
@@ -57,201 +64,169 @@ body {
   margin-bottom: 20px;
   border: 5px solid white;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  position: relative;
   z-index: 5;
 }
 
-/* PROJECTS */
-#projects {
-  scroll-margin-top: 60px;
-  position: relative; /* important for boat */
-  padding-bottom: 120px;
-  background: linear-gradient(135deg, #5DADE2, #e9eded);
-}
-
-/* Water at bottom of Projects */
-#projects::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: linear-gradient(to top, #3498db, transparent);
-  z-index: 1;
-}
-
-#projects h2 {
+#welcome-section h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
 }
 
+/* 5. PROJECTS & GITHUB GRID */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+  z-index: 10; 
 }
 
-.project-tile {
-  background-color: #fff;
+.project-tile, .github-tile {
+  background-color: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
-.project-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.project-tile a {
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-.project-tile img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-/* GITHUB */
-#github {
-  text-align: center;
-  padding: 80px 20px;
-  background-color: #ecf0f1;
-}
-
-.github-grid {
-  display: flex;
-  justify-content: center;
-}
-
-.github-tile {
-  max-width: 700px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.github-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+.project-tile:hover, .github-tile:hover { transform: translateY(-5px); }
+.project-tile a, .github-tile a { color: #fff; text-decoration: none; }
 
 .github-tile a {
-  text-decoration: none;
-  color: #2c3e50;
+  color: #1abc9c;
+  font-size: 1.6rem;
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
 }
 
-/* CLOUDS */
-.cloud {
-  position: absolute;
-  background: #fff;
-  width: 300px;
-  height: 70px;
-  border-radius: 50px;
-  opacity: 0.8;
-  animation: float 25s linear infinite;
-  z-index: 0;
-}
-
-.cloud::before,
-.cloud::after {
-  content: '';
-  position: absolute;
-  background: #fff;
-  width: 160px;
-  height: 90px;
-  border-radius: 50%;
-  top: -25px;
-}
-
-.cloud::before {
-  left: 20px;
-}
-
-.cloud::after {
-  right: 20px;
-}
-
-.cloud1  { top: 20%; left: -300px; animation-duration: 25s; }
-.cloud2  { top: 40%; left: -300px; animation-duration: 35s; }
-.cloud3  { top: 60%; left: -300px; animation-duration: 30s; }
-.cloud4  { top: 30%; left: -330px; animation-duration: 50s; }
-.cloud5  { top: 50%; left: -300px; animation-duration: 45s; }
-.cloud6  { top: 10%; left: -310px; animation-duration: 38s; }
-.cloud7  { top: 25%; left: -300px; animation-duration: 40s; }
-
-@keyframes float {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(140vw); }
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  #welcome-section h1 {
-    font-size: 2rem;
-  }
-}
-
-/* BOAT (moves like clouds in Projects section) */
+/* 6. BOATS (Spawn Left) */
 .boat {
   position: absolute;
-  bottom: 40px;
   left: -150px;
-  width: 110px;
-  height: 110px;
-  z-index: 2;
+  z-index: 1;
   animation: sailBoat 25s linear infinite;
 }
 
-/* Animation: move left → right */
-@keyframes sailBoat {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(140vw); }
-}
-
-/* Boat parts */
-.hull {
+.boat::after {
+  content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
+  left: -10px;
   width: 120px;
-  height: 40px;
-  background: #8e5a2b;
-  border-radius: 0 0 60px 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: ripple 2s ease-in-out infinite;
 }
 
-.mast {
-  position: absolute;
-  bottom: 40px;
-  left: 55px;
-  width: 5px;
-  height: 60px;
-  background: #333;
+.hull { 
+  width: 100px; height: 35px; background: #8e5a2b; 
+  border-radius: 0 0 50px 50px; 
+  animation: bob 3s ease-in-out infinite;
 }
 
-.sail {
+.mast { position: absolute; bottom: 35px; left: 48px; width: 4px; height: 50px; background: #333; }
+.sail { position: absolute; bottom: 45px; left: 52px; border-left: 35px solid white; border-top: 20px solid transparent; border-bottom: 20px solid transparent; }
+
+.boat-1 { top: 10%; }
+.boat-2 { top: 35%; transform: scale(0.7); animation-duration: 40s; animation-delay: -10s; }
+.boat-3 { bottom: 35%; transform: scale(0.85); animation-duration: 32s; animation-delay: -20s; }
+.boat-4 { bottom: 10%; transform: scale(1.1); animation-duration: 18s; animation-delay: -5s; }
+
+/* 7. CLOUDS (Spawn Left) */
+.cloud {
   position: absolute;
-  bottom: 50px;
-  left: 60px;
-  width: 0;
-  height: 0;
-  border-left: 40px solid white;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
+  background: #fff;
+  width: 200px; height: 50px; border-radius: 50px;
+  opacity: 0.5;
+  left: -250px;
+  animation: float 30s linear infinite;
+}
+.cloud::before, .cloud::after { content: ''; position: absolute; background: #fff; width: 100px; height: 70px; border-radius: 50%; top: -20px; }
+.cloud::before { left: 15px; } .cloud::after { right: 15px; }
+
+.cloud1 { top: 10%; animation-delay: -2s; }
+.cloud2 { top: 30%; animation-delay: -15s; }
+.cloud3 { top: 50%; animation-delay: -7s; }
+
+/* 8. FISH DESIGN (Facing Right, Spawn Left) */
+.fish {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: #ff9f43; 
+  border-radius: 50%;
+  z-index: -5;
+  left: -100px;
+  animation: swim 15s linear infinite;
+}
+
+/* Tail on Left */
+.fish::after {
+  content: '';
+  position: absolute;
+  left: -8px; 
+  top: 5px;
+  border-right: 12px solid #ff9f43; 
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+/* Eye on Right */
+.fish::before {
+  content: '';
+  position: absolute;
+  right: 8px; 
+  top: 5px;
+  width: 3px;
+  height: 3px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.fish-1 { top: 20%; background: #f1c40f; }
+.fish-1::after { border-right-color: #f1c40f; }
+
+.fish-2 { 
+  top: 50%; transform: scale(0.6); 
+  animation-duration: 20s; animation-delay: -5s; 
+}
+
+.fish-3 { 
+  bottom: 25%; background: #e74c3c; 
+  animation-duration: 12s; animation-delay: -2s; 
+}
+.fish-3::after { border-right-color: #e74c3c; }
+
+.fish-4 { 
+  bottom: 15%; transform: scale(1.2); 
+  animation-duration: 10s; animation-delay: -8s; 
+}
+
+/* 9. UNIFIED ANIMATIONS */
+@keyframes swim {
+  0% { left: -100px; }
+  100% { left: 110vw; }
+}
+
+@keyframes sailBoat { 
+  0% { left: -150px; } 
+  100% { left: 110vw; } 
+}
+
+@keyframes float { 
+  0% { left: -250px; } 
+  100% { left: 110vw; } 
+}
+
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes ripple { 0%, 100% { transform: scaleX(1); opacity: 0.4; } 50% { transform: scaleX(1.3); opacity: 0.7; } }
+
+/* 10. RESPONSIVE */
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
 }
